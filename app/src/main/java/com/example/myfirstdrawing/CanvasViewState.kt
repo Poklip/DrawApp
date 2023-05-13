@@ -2,7 +2,6 @@ package com.example.myfirstdrawing
 
 
 import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
 
 data class CanvasViewState(val color: COLOR, val size: SIZE, val tools: TOOLS)
 
@@ -38,12 +37,3 @@ enum class SIZE(
     }
 }
 
-enum class TOOLS(
-    @DrawableRes
-    val value: Int
-) {
-    NORMAL(R.drawable.ic_horizontal_line),
-    DASH(R.drawable.ic_dashed_line),
-//    SIZE(R.drawable.baseline_brightness_1_24),
-    PALETTE(R.drawable.baseline_brightness_1_24)
-}

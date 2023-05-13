@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
@@ -54,7 +55,7 @@ class DrawView @JvmOverloads constructor(
         strokeWidth = STROKE_WIDTH // default: Hairline-width (really thin)
     }
 
-/*    fun render(state: CanvasViewState) {
+    fun render(state: CanvasViewState) {
         drawColor = ResourcesCompat.getColor(resources, state.color.value, null)
         paint.color = drawColor
         paint.strokeWidth = state.size.value.toFloat()
@@ -70,7 +71,7 @@ class DrawView @JvmOverloads constructor(
         } else {
             paint.pathEffect = null
         }
-    }*/
+    }
 
     fun clear() {
         extraCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
