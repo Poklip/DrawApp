@@ -1,6 +1,9 @@
 package com.example.myfirstdrawing
 
 import com.example.myfirstdrawing.base.MyEvent
+import com.example.myfirstdrawing.viewstate.COLOR
+import com.example.myfirstdrawing.viewstate.CanvasViewState
+import com.example.myfirstdrawing.viewstate.TOOLS
 
 data class ViewState(
     val toolsList: List<ToolItem.ToolModel>,

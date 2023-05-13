@@ -13,6 +13,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.core.content.res.ResourcesCompat
+import com.example.myfirstdrawing.viewstate.COLOR
+import com.example.myfirstdrawing.viewstate.CanvasViewState
+import com.example.myfirstdrawing.viewstate.TOOLS
 import kotlin.math.abs
 
 class DrawView @JvmOverloads constructor(

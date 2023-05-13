@@ -2,6 +2,10 @@ package com.example.myfirstdrawing
 
 import com.example.myfirstdrawing.base.BaseViewModel
 import com.example.myfirstdrawing.base.MyEvent
+import com.example.myfirstdrawing.viewstate.COLOR
+import com.example.myfirstdrawing.viewstate.CanvasViewState
+import com.example.myfirstdrawing.viewstate.SIZE
+import com.example.myfirstdrawing.viewstate.TOOLS
 
 class CanvasViewModel : BaseViewModel<ViewState>() {
     override fun initialViewState(): ViewState = ViewState(
