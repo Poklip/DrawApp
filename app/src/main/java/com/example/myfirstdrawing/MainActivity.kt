@@ -2,6 +2,7 @@ package com.example.myfirstdrawing
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.myfirstdrawing.viewstate.TOOLS
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private val paletteLayout: ToolsLayout by lazy { findViewById(R.id.paletteLayout) }
     private val toolsLayout: ToolsLayout by lazy { findViewById(R.id.toolsLayout) }
     private val sizeLayout: ToolsLayout by lazy {findViewById(R.id.sizeLayout)}
-
+    private val appName: TextView by lazy {findViewById(R.id.tvAppName)}
     private val ivTools: ImageView by lazy { findViewById(R.id.ivTools) }
     private val drawView: DrawView by lazy { findViewById(R.id.dvCanvas) }
 
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         toolsList = listOf(paletteLayout, toolsLayout, sizeLayout)
         viewModel.viewState.observe(this, ::render)
+
+        appName.text = "Canvas paint"
 
         paletteLayout.setOnClickListener {
             viewModel.processUiEvent(UiEvent.OnPaletteClicked(it))

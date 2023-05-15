@@ -12,7 +12,19 @@
         android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/soft_background">
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:fontFamily="cursive"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="48sp"
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/ivTools"
