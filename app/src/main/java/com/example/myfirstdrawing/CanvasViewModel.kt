@@ -11,9 +11,11 @@ class CanvasViewModel : BaseViewModel<ViewState>() {
     override fun initialViewState(): ViewState = ViewState(
         colorList = enumValues<COLOR>().map { ToolItem.ColorModel(it.value) },
         toolsList = enumValues<TOOLS>().map { ToolItem.ToolModel(it) },
+        sizeList = enumValues<SIZE>().map { ToolItem.SizeModel(it.value) },
         isPaletteVisible = false,
+        isToolsVisible = false,
+        isSizeChangerVisible = false,
         canvasViewState = CanvasViewState(color = COLOR.BLACK, size = SIZE.MEDIUM, tools = TOOLS.NORMAL),
-        isToolsVisible = false
     )
 
     init {
@@ -22,12 +24,14 @@ class CanvasViewModel : BaseViewModel<ViewState>() {
 
     override fun reduce(event: MyEvent, previousState: ViewState): ViewState? {
         when (event) {
-            is UiEvent.OnToolbarClicked -> return previousState.copy(isToolsVisible = !previousState.isToolsVisible, isPaletteVisible = false)
+            is UiEvent.OnToolbarClicked -> return previousState.copy(isToolsVisible = !previousState.isToolsVisible, isPaletteVisible = false, isSizeChangerVisible = false)
 
             is UiEvent.OnToolsClick -> {
                 when (event.index) {
 
                     TOOLS.PALETTE.ordinal -> return previousState.copy(isPaletteVisible = !previousState.isPaletteVisible)
+
+                    TOOLS.SIZE.ordinal -> return previousState.copy(isSizeChangerVisible = !previousState.isSizeChangerVisible)
 
                     else -> {
 
@@ -60,6 +64,22 @@ class CanvasViewModel : BaseViewModel<ViewState>() {
                 return previousState.copy(
                     toolsList = toolsList,
                     canvasViewState = previousState.canvasViewState.copy(color = selectedColor)
+                )
+            }
+
+            is UiEvent.OnSizeClick -> {
+                val selectedSize = SIZE.values()[event.index]
+                val toolsList = previousState.toolsList.map {
+                    if (it.type == TOOLS.SIZE) {
+                        it.copy(selectedSize = selectedSize)
+                    } else {
+                        it
+                    }
+                }
+
+                return previousState.copy(
+                    toolsList = toolsList,
+                    canvasViewState = previousState.canvasViewState.copy(size = selectedSize)
                 )
             }
 

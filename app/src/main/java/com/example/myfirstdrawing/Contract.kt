@@ -8,10 +8,10 @@ import com.example.myfirstdrawing.viewstate.TOOLS
 data class ViewState(
     val toolsList: List<ToolItem.ToolModel>,
     val colorList: List<ToolItem.ColorModel>,
-    //val sizeList: List<ToolItem.SizeModel>,
+    val sizeList: List<ToolItem.SizeModel>,
     val canvasViewState: CanvasViewState,
     val isPaletteVisible: Boolean,
-    //val isBrushSizeChangerVisible: Boolean,
+    val isSizeChangerVisible: Boolean,
     val isToolsVisible: Boolean
 )
 

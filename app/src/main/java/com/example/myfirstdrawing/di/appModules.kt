@@ -1,5 +1,6 @@
-package com.example.myfirstdrawing
+package com.example.myfirstdrawing.di
 
+import com.example.myfirstdrawing.CanvasViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

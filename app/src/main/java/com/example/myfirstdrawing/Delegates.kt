@@ -2,7 +2,9 @@ package com.example.myfirstdrawing
 
 
 import android.graphics.PorterDuff
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import com.example.myfirstdrawing.base.Item
 import com.example.myfirstdrawing.viewstate.TOOLS
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
@@ -26,6 +28,20 @@ fun colorAdapterDelegate(
         }
     }
 
+fun sizeAdapterDelegate(
+    onClick: (Int) -> Unit
+): AdapterDelegate<List<Item>> =
+    adapterDelegateLayoutContainer<ToolItem.SizeModel, Item>(
+        R.layout.item_size
+    ) {
+        val size: TextView = findViewById(R.id.tvSize)
+        itemView.setOnClickListener { onClick(adapterPosition) }
+
+        bind { list ->
+            size.text = item.size.toString()
+        }
+    }
+
 fun toolsAdapterDelegate(
     onToolsClick: (Int) -> Unit
 ): AdapterDelegate<List<Item>> = adapterDelegateLayoutContainer<ToolItem.ToolModel, Item>(
@@ -37,16 +53,8 @@ fun toolsAdapterDelegate(
     bind { list ->
         ivTool.setImageResource(item.type.value)
 
-//        if (itemView.tvToolsText.visibility == View.VISIBLE) {
-//            itemView.tvToolsText.visibility = View.GONE
-//        }
-
         when (item.type) {
 
-//            TOOLS.SIZE -> {
-//                itemView.tvToolsText.visibility = View.VISIBLE
-//                itemView.tvToolsText.text = item.selectedSize.value.toString()
-//            }
 
             TOOLS.PALETTE -> {
                 ivTool.setColorFilter(

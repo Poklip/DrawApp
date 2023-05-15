@@ -3,6 +3,7 @@ package com.example.myfirstdrawing
 import androidx.annotation.ColorRes
 import com.example.myfirstdrawing.base.Item
 import com.example.myfirstdrawing.viewstate.COLOR
+import com.example.myfirstdrawing.viewstate.SIZE
 import com.example.myfirstdrawing.viewstate.TOOLS
 
 sealed class ToolItem : Item {
@@ -12,7 +13,7 @@ sealed class ToolItem : Item {
         val type: TOOLS,
         val selectedTool: TOOLS = TOOLS.NORMAL,
         val isSelected: Boolean = false,
-//        val selectedSIZE: SIZE = SIZE.SMALL,
+        val selectedSize: SIZE = SIZE.SMALL,
         val selectedColor: COLOR = COLOR.BLACK
     ) : ToolItem()
 }

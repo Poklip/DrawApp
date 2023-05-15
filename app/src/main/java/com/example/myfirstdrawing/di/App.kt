@@ -1,4 +1,4 @@
-package com.example.myfirstdrawing
+package com.example.myfirstdrawing.di
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
